@@ -1,25 +1,26 @@
 {
-  "name": "Better Snapchat",
-  "version": "1.0.0",
-  "description": "This browser extension enhances your web.snapchat.com experience by adding several essential privacy features.",
+  "name": "Better Instagram",
+  "version": "1.0.1",
+  "description": "This browser extension enhances your instagram.com experience by adding several essential privacy features.",
   "main": "esbuild.config.js",
   "scripts": {
+    "dev": "nodemon --watch src --ext ts,tsx --exec \"npm run build\"",
     "build": "node ./esbuild.config.js",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/*.{ts,tsx}\"",
-    "package": "npm ci && npm run build && zip -r better-snapchat.zip public",
+    "package": "npm ci && npm run build && zip -r better-Instagram.zip public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dclstn/better-snapchat.git"
+    "url": "git+https://github.com/dclstn/better-instagram.git"
   },
   "author": "donnieacolston@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dclstn/better-snapchat/issues"
+    "url": "https://github.com/dclstn/better-instagram/issues"
   },
-  "homepage": "https://github.com/dclstn/better-snapchat#readme",
+  "homepage": "https://github.com/dclstn/better-instagram#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -46,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "nodemon": "^2.0.22",
     "prettier": "^2.8.4"
   }
 }

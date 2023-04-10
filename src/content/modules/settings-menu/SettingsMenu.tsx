@@ -14,21 +14,14 @@ class SettingsMenu {
   }
 
   load() {
-    const node: HTMLElement | null = document.querySelector(CLOSE_BUTTON_SELECTOR);
-
-    if (node == null) {
-      return;
-    }
-
     if (mountedButtonNode != null) {
       ReactDOM.unmountComponentAtNode(mountedButtonNode);
     }
 
-    const buttonsContainer = node.parentNode;
     const contentContainer = document.createElement('div');
     contentContainer.setAttribute('id', 'modalOpenButton');
-    buttonsContainer?.append(contentContainer);
-
+    const body = document.querySelector('body');
+    if (body) body.appendChild(contentContainer);
     mountedButtonNode = contentContainer;
 
     ReactDOM.render(<ModalButton />, contentContainer);

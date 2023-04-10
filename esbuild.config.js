@@ -8,7 +8,7 @@ const fs = require('fs/promises');
   console.log('Building: Extension');
 
   await ESBuild.build({
-    entryPoints: ['./src/background', './src/content'],
+    entryPoints: ['./src/content'],
     bundle: true,
     minify: true,
     sourcemap: false,
@@ -33,13 +33,13 @@ const fs = require('fs/promises');
     background: { service_worker: './build/background.js' },
     content_scripts: [
       {
-        matches: ['https://web.snapchat.com/*'],
+        matches: ['https://www.instagram.com/*'],
         js: ['./build/content.js'],
         run_at: 'document_start',
       },
     ],
     permissions: ['declarativeNetRequest'],
-    host_permissions: ['https://web.snapchat.com/*'],
+    host_permissions: ['https://www.instagram.com/*'],
   };
 
   await fs.writeFile('./public/manifest.json', JSON.stringify(manifest, null, 2));

@@ -1,7 +1,7 @@
-/* snapchat overwrites default console.log */
+/* Instagram overwrites default console.log */
 const { log } = console;
 
-const PREFIX = '[Better-Snapchat]';
+const PREFIX = '[Better-Instagram]';
 
 class Logger {
   static log(...args: any[]) {

@@ -10,7 +10,7 @@ export default function App({ visible, closeHandler }: { visible: boolean; close
     <Modal closeButton aria-labelledby="modal-title" open={visible} onClose={closeHandler}>
       <Modal.Header>
         <Text id="modal-title" size={18}>
-          Better Snapchat
+          Better Instagram
         </Text>
       </Modal.Header>
       <Modal.Body>
