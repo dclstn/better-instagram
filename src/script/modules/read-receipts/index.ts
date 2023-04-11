@@ -12,17 +12,17 @@ function handleRequest(method: string, url: URL | string): boolean {
   return !regex.test(urlString);
 }
 
-class ReadReciepts {
+class DisableReadReciepts {
   private middlewareId: string | null;
 
   constructor() {
     this.middlewareId = null;
     this.load();
-    settings.on(`${SettingIds.READ_RECEIPTS}.${EventTypes.SETTING_UPDATE}`, this.load);
+    settings.on(`${SettingIds.DISABLE_READ_RECEIPTS}.${EventTypes.SETTING_UPDATE}`, this.load);
   }
 
   load() {
-    const enabled = settings.getSetting(SettingIds.READ_RECEIPTS);
+    const enabled = settings.getSetting(SettingIds.DISABLE_READ_RECEIPTS);
     if (!enabled && this.middlewareId != null) {
       unregisterMiddleware(this.middlewareId);
       this.middlewareId = null;
@@ -32,4 +32,4 @@ class ReadReciepts {
   }
 }
 
-export default new ReadReciepts();
+export default new DisableReadReciepts();

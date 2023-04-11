@@ -17,7 +17,7 @@ export default function useApi(callback: () => Promise<any>): { data: any; loadi
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [callback]);
 
   return { data, loading, error };
 }

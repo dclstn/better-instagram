@@ -26,3 +26,14 @@
   margin-bottom: 4px;
   font-weight: unset !important;
 }
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.buttonGroup button {
+  min-width: unset;
+  flex: 1;
+}

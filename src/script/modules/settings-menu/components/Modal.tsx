@@ -1,17 +1,14 @@
 import React from 'react';
-import { Modal, Button, Text, Checkbox } from '@nextui-org/react';
+import { Modal, Button, Text, Checkbox, Divider } from '@nextui-org/react';
 import { MemoryRouter, Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import SaveTranscript from './SaveTranscript';
 import { MemoryRoutes, SettingIds } from '../../../../common/constants';
 import useSettingState from '../../../common/hooks/useSettingState';
+import styles from './Modal.module.css';
 
 function ModalWrapper() {
-  const navigate = useNavigate();
   return (
     <Modal.Body css={{ padding: '$10' }}>
-      <Button light onPress={() => navigate(MemoryRoutes.INDEX)}>
-        Better Instagram
-      </Button>
       <Outlet />
     </Modal.Body>
   );
@@ -19,22 +16,22 @@ function ModalWrapper() {
 
 function ModalContent() {
   const navigate = useNavigate();
-  const [checked, setChecked] = useSettingState(SettingIds.READ_RECEIPTS);
+  const [checked, setChecked] = useSettingState(SettingIds.DISABLE_READ_RECEIPTS);
   return (
     <div>
       <Text size={14} css={{ margin: 0 }}>
         Save Transcript
       </Text>
-      <Button auto onPress={() => navigate(MemoryRoutes.SAVE_TRANSCRIPT)} css={{ mt: '$2' }}>
+      <Button flat auto onPress={() => navigate(MemoryRoutes.SAVE_TRANSCRIPT)} css={{ mt: '$2' }}>
         Select User
       </Button>
+      <Divider />
       <Checkbox isSelected={checked} onClick={() => setChecked(!checked)}>
-        <Text size={14} css={{ margin: 0 }}>
-          Read Reciepts
-        </Text>
-        <Text size={14} color="#999" css={{ margin: 0 }}>
-          When disabled people cannot see when you have read their messages
-        </Text>
+        <div className={styles.checkboxLabel}>
+          <Text size={14} css={{ margin: 0 }}>
+            Disable Message Receipts
+          </Text>
+        </div>
       </Checkbox>
     </div>
   );

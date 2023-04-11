@@ -13,7 +13,7 @@ export default function ModalButton() {
   return (
     <ThemeProvider>
       <div className={styles.container}>
-        <Button auto onPress={() => setVisible(true)} icon={<FontAwesomeIcon icon={faGhost} />} />
+        <Button flat auto onPress={() => setVisible(true)} icon={<FontAwesomeIcon icon={faGhost} />} />
         <SettingsModal closeHandler={handler} visible={visible} />
       </div>
     </ThemeProvider>

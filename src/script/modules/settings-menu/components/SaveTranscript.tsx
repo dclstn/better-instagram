@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import { Avatar, Button, Checkbox, Dropdown, Loading, Text } from '@nextui-org/react';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { MemoryRoutes } from '../../../../common/constants';
 import useApi from '../../../common/hooks/useAPI';
 import { getInbox, getThread } from '../../../lib/instagram-api';
 import styles from './Checkbox.module.css';
@@ -66,6 +68,7 @@ function getUserFromThread(thread: any, userId: any) {
 }
 
 export default function SaveTranscript() {
+  const navigate = useNavigate();
   const { data, loading } = useApi(getInbox);
   const [selected, setSelected] = React.useState(new Set());
   const [totalItems, setTotalItems] = React.useState(0);
@@ -167,9 +170,10 @@ export default function SaveTranscript() {
       <Dropdown placement="bottom-left" disableAnimation>
         <Dropdown.Button disabled={loading} auto bordered icon={undefined}>
           {loading ? <Loading type="points-opacity" color="currentColor" size="sm" /> : null}
-          {!loading && selectedThread?.title == null ? 'Select User' : selectedThread?.title}
+          {!loading && selectedThread?.title == null ? 'Select User / Thread' : selectedThread?.title}
         </Dropdown.Button>
         <Dropdown.Menu
+          css={{ maxH: '200px !important' }}
           disallowEmptySelection
           selectionMode="single"
           selectedKeys={selected as Set<string>}
@@ -301,9 +305,14 @@ export default function SaveTranscript() {
           <Dropdown.Item key={FileFormat.TXT}>TXT</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Button onClick={() => saveTranscript()} disabled={isDisabled}>
-        {fetching ? `Saving ${totalItems} items...` : 'Save Transcript'}
-      </Button>
+      <div className={styles.buttonGroup}>
+        <Button flat onPress={() => navigate(MemoryRoutes.INDEX)}>
+          Cancel
+        </Button>
+        <Button onPress={() => saveTranscript()} disabled={isDisabled}>
+          {fetching ? `Saving ${totalItems} items...` : 'Save Transcript'}
+        </Button>
+      </div>
     </div>
   );
 }

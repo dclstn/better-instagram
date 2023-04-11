@@ -1,9 +1,9 @@
 export enum SettingIds {
-  READ_RECEIPTS = 'read-receipts',
+  DISABLE_READ_RECEIPTS = 'disable-read-receipts',
 }
 
 export const DefaultSettingValues = {
-  [SettingIds.READ_RECEIPTS]: true,
+  [SettingIds.DISABLE_READ_RECEIPTS]: false,
 };
 
 export const EventTypes = {
