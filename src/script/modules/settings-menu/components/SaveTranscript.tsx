@@ -71,7 +71,7 @@ export default function SaveTranscript() {
   const [totalItems, setTotalItems] = React.useState(0);
   const [fetching, setFetching] = React.useState(false);
   const [filter, setFilter] = React.useState<Filter>(DEFAULT_FILTER);
-  const [fileFormat, setFileFormat] = React.useState<Set<FileFormat>>(new Set([FileFormat.JSON]));
+  const [fileFormat, setFileFormat] = React.useState<Set<FileFormat>>(new Set([FileFormat.TXT]));
 
   const threads = React.useMemo(() => {
     if (data == null) {

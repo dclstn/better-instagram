@@ -1,9 +1,9 @@
 export enum SettingIds {
-  SAVE_TRANSCRIPT_BUTTON = 'save-transcript-button',
+  READ_RECEIPTS = 'read-receipts',
 }
 
 export const DefaultSettingValues = {
-  [SettingIds.SAVE_TRANSCRIPT_BUTTON]: true,
+  [SettingIds.READ_RECEIPTS]: true,
 };
 
 export const EventTypes = {
@@ -15,5 +15,6 @@ export const PayloadNames = {
 };
 
 export const MemoryRoutes = {
+  INDEX: '/',
   SAVE_TRANSCRIPT: '/save-transcript',
 };

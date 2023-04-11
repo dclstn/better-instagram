@@ -8,7 +8,7 @@ const fs = require('fs/promises');
   console.log('Building: Extension');
 
   await ESBuild.build({
-    entryPoints: ['./src/content'],
+    entryPoints: ['./src/script'],
     bundle: true,
     minify: true,
     sourcemap: false,
@@ -30,15 +30,14 @@ const fs = require('fs/promises');
       96: 'logo96.png',
       128: 'logo128.png',
     },
-    background: { service_worker: './build/background.js' },
     content_scripts: [
       {
         matches: ['https://www.instagram.com/*'],
-        js: ['./build/content.js'],
+        js: ['./build/script.js'],
         run_at: 'document_start',
+        world: 'MAIN',
       },
     ],
-    permissions: ['declarativeNetRequest'],
     host_permissions: ['https://www.instagram.com/*'],
   };
 
