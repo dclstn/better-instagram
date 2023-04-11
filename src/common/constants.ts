@@ -1,19 +1,9 @@
-export enum DynamicRuleIds {
-  BLOCK_PREVENT_TYPING_NOTIFICATION = 1,
-  BLOCK_EVENTS = 2,
-  MODIFY_HEADER = 3,
-}
-
 export enum SettingIds {
-  ALLOW_SCREENSHOT = 'ALLOW_SCREENSHOT',
-  PREVENT_TYPING_NOTIFICATION = 'PREVENT_TYPING_NOTIFICATION',
-  SAVE_IMAGE_BUTTON = 'SAVE_IMAGE_BUTTON',
+  SAVE_TRANSCRIPT_BUTTON = 'save-transcript-button',
 }
 
 export const DefaultSettingValues = {
-  [SettingIds.ALLOW_SCREENSHOT]: true,
-  [SettingIds.PREVENT_TYPING_NOTIFICATION]: false,
-  [SettingIds.SAVE_IMAGE_BUTTON]: true,
+  [SettingIds.SAVE_TRANSCRIPT_BUTTON]: true,
 };
 
 export const EventTypes = {
@@ -22,4 +12,8 @@ export const EventTypes = {
 
 export const PayloadNames = {
   SETTING_UPDATE: 'setting:update',
+};
+
+export const MemoryRoutes = {
+  SAVE_TRANSCRIPT: '/save-transcript',
 };

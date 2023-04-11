@@ -4,27 +4,17 @@ export default function useTheme() {
   const [theme, setTheme] = React.useState('dark');
 
   React.useEffect(() => {
-    const node = document.querySelector('html') as Element;
-
-    function handleThemeMutation() {
-      const currentTheme = node.getAttribute('theme') ?? 'light';
+    function handleTheme() {
+      const currentTheme = window.localStorage.getItem('igt') || 'dark';
       setTheme(currentTheme);
     }
 
-    handleThemeMutation();
+    handleTheme();
 
-    const observer = new MutationObserver((mutations) => {
-      if (mutations.length === 0) {
-        return;
-      }
-
-      handleThemeMutation();
-    });
-
-    observer.observe(node, { attributes: true, attributeFilter: ['theme'] });
+    window.addEventListener('storage', handleTheme);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('storage', handleTheme);
     };
   }, [setTheme]);
 
