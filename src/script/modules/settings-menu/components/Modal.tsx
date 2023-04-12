@@ -14,9 +14,34 @@ function ModalWrapper() {
   );
 }
 
+function ReadReceipts() {
+  const [checked, setChecked] = useSettingState(SettingIds.DISABLE_READ_RECEIPTS);
+  return (
+    <Checkbox isSelected={checked} onClick={() => setChecked(!checked)}>
+      <div className={styles.checkboxLabel}>
+        <Text size={14} css={{ margin: 0 }}>
+          Disable Message Receipts
+        </Text>
+      </div>
+    </Checkbox>
+  );
+}
+
+function SeenStory() {
+  const [checked, setChecked] = useSettingState(SettingIds.DISABLE_SEEN_STORY);
+  return (
+    <Checkbox isSelected={checked} onClick={() => setChecked(!checked)}>
+      <div className={styles.checkboxLabel}>
+        <Text size={14} css={{ margin: 0 }}>
+          Disable Seen Story
+        </Text>
+      </div>
+    </Checkbox>
+  );
+}
+
 function ModalContent() {
   const navigate = useNavigate();
-  const [checked, setChecked] = useSettingState(SettingIds.DISABLE_READ_RECEIPTS);
   return (
     <div>
       <Text size={14} css={{ margin: 0 }}>
@@ -26,13 +51,8 @@ function ModalContent() {
         Select User
       </Button>
       <Divider />
-      <Checkbox isSelected={checked} onClick={() => setChecked(!checked)}>
-        <div className={styles.checkboxLabel}>
-          <Text size={14} css={{ margin: 0 }}>
-            Disable Message Receipts
-          </Text>
-        </div>
-      </Checkbox>
+      <ReadReceipts />
+      <SeenStory />
     </div>
   );
 }
