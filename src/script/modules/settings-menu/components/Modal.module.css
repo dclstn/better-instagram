@@ -13,5 +13,15 @@
 .checkboxLabel {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;
+}
+
+.checkboxLabel > p {
+  margin: 0 !important;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

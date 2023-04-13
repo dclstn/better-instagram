@@ -1,6 +1,8 @@
 import React from 'react';
 import { Modal, Button, Text, Checkbox, Divider } from '@nextui-org/react';
 import { MemoryRouter, Outlet, Route, Routes, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import SaveTranscript from './SaveTranscript';
 import { MemoryRoutes, SettingIds } from '../../../../common/constants';
 import useSettingState from '../../../common/hooks/useSettingState';
@@ -22,6 +24,9 @@ function ReadReceipts() {
         <Text size={14} css={{ margin: 0 }}>
           Disable Message Receipts
         </Text>
+        <Text size={14} color="#999" css={{ margin: 0, fontWeight: '400' }}>
+          Others cannot see you have read their message.
+        </Text>
       </div>
     </Checkbox>
   );
@@ -35,6 +40,9 @@ function SeenStory() {
         <Text size={14} css={{ margin: 0 }}>
           Disable Seen Story
         </Text>
+        <Text size={14} color="#999" css={{ margin: 0, fontWeight: '400' }}>
+          Others cannot see you have viewed their story.
+        </Text>
       </div>
     </Checkbox>
   );
@@ -44,15 +52,29 @@ function ModalContent() {
   const navigate = useNavigate();
   return (
     <div>
-      <Text size={14} css={{ margin: 0 }}>
+      <div className={styles.settings}>
+        <ReadReceipts />
+        <SeenStory />
+      </div>
+      <Divider css={{ mt: '$10', mb: '$10' }} />
+      <div className={styles.checkboxLabel}>
+        <Text size={14} css={{ margin: 0 }}>
+          Save Transcript
+        </Text>
+        <Text size={14} color="#999" css={{ margin: 0, fontWeight: '400' }}>
+          Save a copy of your chat history.
+        </Text>
+      </div>
+      <Button
+        size="sm"
+        flat
+        auto
+        onPress={() => navigate(MemoryRoutes.SAVE_TRANSCRIPT)}
+        css={{ mt: '$4' }}
+        iconRight={<FontAwesomeIcon icon={faCaretRight} />}
+      >
         Save Transcript
-      </Text>
-      <Button flat auto onPress={() => navigate(MemoryRoutes.SAVE_TRANSCRIPT)} css={{ mt: '$2' }}>
-        Select User
       </Button>
-      <Divider />
-      <ReadReceipts />
-      <SeenStory />
     </div>
   );
 }

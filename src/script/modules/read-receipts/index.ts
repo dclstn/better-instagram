@@ -26,7 +26,8 @@ class DisableReadReciepts {
     if (!enabled && this.middlewareId != null) {
       unregisterMiddleware(this.middlewareId);
       this.middlewareId = null;
-    } else if (enabled && this.middlewareId == null) {
+    }
+    if (enabled && this.middlewareId == null) {
       this.middlewareId = registerMiddleware(handleRequest);
     }
   }

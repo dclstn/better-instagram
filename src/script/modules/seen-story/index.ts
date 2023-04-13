@@ -12,7 +12,7 @@ function handleRequest(method: string, url: URL | string): boolean {
   return !regex.test(urlString);
 }
 
-class DisableReadReciepts {
+class DisableSeenStory {
   private middlewareId: string | null;
 
   constructor() {
@@ -26,10 +26,11 @@ class DisableReadReciepts {
     if (!enabled && this.middlewareId != null) {
       unregisterMiddleware(this.middlewareId);
       this.middlewareId = null;
-    } else if (enabled && this.middlewareId == null) {
+    }
+    if (enabled && this.middlewareId == null) {
       this.middlewareId = registerMiddleware(handleRequest);
     }
   }
 }
 
-export default new DisableReadReciepts();
+export default new DisableSeenStory();

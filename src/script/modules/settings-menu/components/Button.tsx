@@ -1,4 +1,4 @@
-import { faGhost } from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '@nextui-org/react';
 import React from 'react';
@@ -13,7 +13,7 @@ export default function ModalButton() {
   return (
     <ThemeProvider>
       <div className={styles.container}>
-        <Button flat auto onPress={() => setVisible(true)} icon={<FontAwesomeIcon icon={faGhost} />} />
+        <Button flat auto onPress={() => setVisible(true)} icon={<FontAwesomeIcon icon={faWandMagicSparkles} />} />
         <SettingsModal closeHandler={handler} visible={visible} />
       </div>
     </ThemeProvider>
