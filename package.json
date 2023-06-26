@@ -28,7 +28,7 @@
     "@nextui-org/react": "^1.0.0-beta.12",
     "axios": "^1.4.0",
     "cookies-js": "^1.2.3",
-    "eventemitter3": "^5.0.0",
+    "eventemitter3": "^5.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
