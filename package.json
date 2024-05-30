@@ -35,7 +35,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.267",
+    "@types/chrome": "^0.0.268",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
     "@types/uuid": "^9.0.8",
